@@ -1,0 +1,26 @@
+<head>
+  <title>kleinsfahrplan</title>
+</head>
+
+<body>
+  
+  <div class="container">
+  <h1>Klein's kleiner Fahrplahn</h1>
+  	{{>connections}}
+  </div>
+</body>
+
+<template name="connections">
+{{#each connections}}
+	<div class="col-xs-6 col-sm-4">
+		<h3>Verbindung {{@index}}</h3>
+		<h4>{{fromStation}}</h4>
+		<p>Abfahrt: {{formatDate from.departureTimestamp}}</p>
+		<p>Gleis {{from.platform}}</p>
+		<h4>{{toStation}}</h4>
+		<p>Ankunft: {{formatDate to.arrivalTimestamp}}</p>
+		<p>Gleis {{to.platform}}</p>
+	</div>
+{{/each}}
+
+</template>
